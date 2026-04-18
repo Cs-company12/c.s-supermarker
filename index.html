@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="so">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSS FURUIT - Nidaamka Iibka</title>
+    <title>MSS FRUIT - نظام البيع</title>
     
     <!-- CDN imports -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -24,8 +24,8 @@
         .nav-brand { font-size: 1.4rem; font-weight: bold; color: #28a745; }
         .nav-menu { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
         .nav-btn { padding: 8px 16px; border: none; background: #f0f0f0; border-radius: 8px; cursor: pointer; transition: all 0.3s; font-size: 14px; }
-        .nav-btn:hover { background: #28a745; color: white; }
-        .nav-btn.active { background: #28a745; color: white; }
+        .nav-btn:hover { background: #8e28a7; color: white; }
+        .nav-btn.active { background: #3528a7; color: white; }
         .nav-right { margin-left: auto; display: flex; gap: 1rem; align-items: center; }
         .user-info { font-weight: 500; color: #28a745; }
         .unified-section { min-height: 100vh; padding: 2rem 1.5rem; display: none; }
@@ -114,50 +114,52 @@
 <!-- Login View -->
 <div id="loginContainer" class="login-container">
     <div class="login-box">
-        <h2>🔐 Mss fruit🍾🍓 Login</h2>
-        <input type="text" id="loginUsername" class="login-input" placeholder="Username" maxlength="50" autocomplete="username">
-        <input type="password" id="loginPassword" class="login-input" placeholder="Password" autocomplete="current-password">
-        <button id="loginBtn" class="login-btn">Login</button>
+        <h2>🔐 تسجيل دخول Mss fruit🍾🍓</h2>
+        <img src="https://raw.githubusercontent.com/Cs-company12/c.s-supermarker/main/ChatGPT%20Image%20Apr%2018,%202026,%2011_57_47%20AM.png" alt="أيقونة تسجيل الدخول" style="display:block;margin:0 auto 1.5rem;width:80px;opacity:0.8;">
+        <input type="text" id="loginUsername" class="login-input" placeholder="اسم المستخدم" maxlength="50" autocomplete="username">
+        <input type="password" id="loginPassword" class="login-input" placeholder="كلمة المرور" autocomplete="current-password">
+        <button id="loginBtn" class="login-btn">تسجيل الدخول</button>
         <div id="loginAlert" class="alert alert-danger d-none mt-3"></div>
     </div>
 </div>
 
 <!-- Navigation -->
 <div id="navbar" class="navbar">
-    <div class="nav-brand">🛒 miss fruit🍓 POS</div>
+    <img src="https://raw.githubusercontent.com/Cs-company12/c.s-supermarker/main/ChatGPT%20Image%20Apr%2018,%202026,%2011_57_47%20AM.png" alt="Login Icon" style="display:block;margin:0 auto 1.5rem;width:80px;opacity:0.8;">
+    <div class="nav-brand">🛒 نظام مبيعات فروت🍓</div>
     <div class="nav-menu" id="navMenu"></div>
     <div class="nav-right">
         <span class="user-info" id="userDisplay"></span>
-        <button class="btn-accent" id="logoutBtn">Logout</button>
-        <button class="btn-accent role-admin" id="exportBtn" style="display:none">📥 Export Data</button>
+        <button class="btn-accent" id="logoutBtn">تسجيل الخروج</button>
+        <button class="btn-accent role-admin" id="exportBtn" style="display:none">📥 تصدير البيانات</button>
     </div>
 </div>
 
 <!-- Dashboard View (ADMIN ONLY) -->
 <div id="dashboardView" class="unified-section">
-    <h6 class="mb-3"><i class="bi bi-speedometer2"></i> Dashboard Overview - Admin</h6>
+    <h6 class="mb-3"><i class="bi bi-speedometer2"></i> نظرة عامة على لوحة التحكم - المشرف</h6>
     <div class="row g-3 mb-4" style="display: flex; gap: 1rem;">
-        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">Today Sales</small><div id="statToday">$0.00</div></div></div>
-        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">This Week</small><div id="statWeek">$0.00</div></div></div>
-        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">This Month</small><div id="statMonth">$0.00</div></div></div>
-        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">Total Products</small><div id="statProducts">0</div></div></div>
+        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">مبيعات اليوم</small><div id="statToday">$0.00</div></div></div>
+        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">هذا الأسبوع</small><div id="statWeek">$0.00</div></div></div>
+        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">هذا الشهر</small><div id="statMonth">$0.00</div></div></div>
+        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">إجمالي المنتجات</small><div id="statProducts">0</div></div></div>
     </div>
     <div class="row g-3 mb-4" style="display: flex; gap: 1rem;">
-        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">Total Profit</small><div id="statProfit">$0.00</div></div></div>
-        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">Total Items in Stock</small><div id="statMedicines">0</div></div></div>
-        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">Low Stock Items</small><div id="statLowStock">0</div></div></div>
-        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">Credit Amount</small><div id="statCredit">$0.00</div></div></div>
+        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">إجمالي الأرباح</small><div id="statProfit">$0.00</div></div></div>
+        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">إجمالي الكمية في المخزون</small><div id="statMedicines">0</div></div></div>
+        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">المنتجات منخفضة المخزون</small><div id="statLowStock">0</div></div></div>
+        <div class="col-md-3" style="flex: 1;"><div class="stat"><small class="text-muted">قيمة الدين</small><div id="statCredit">$0.00</div></div></div>
     </div>
     <div class="row g-3" style="display: flex; gap: 1rem;">
-        <div class="col-md-8" style="flex: 2;"><div class="card-modern"><h6>📈 Sales Chart (Last 14 Days)</h6><canvas id="chartSales"></canvas></div></div>
-        <div class="col-md-4" style="flex: 1;"><div class="card-modern"><h6>🏆 Top Sold Items</h6><div id="topSoldList"></div></div></div>
+        <div class="col-md-8" style="flex: 2;"><div class="card-modern"><h6>📈 مخطط المبيعات (آخر 14 يومًا)</h6><canvas id="chartSales"></canvas></div></div>
+        <div class="col-md-4" style="flex: 1;"><div class="card-modern"><h6>🏆 أكثر المنتجات مبيعاً</h6><div id="topSoldList"></div></div></div>
     </div>
-    <div class="card-modern mt-3"><h6>⚠️ Stock Alerts</h6><div id="lowStockAlerts"></div></div>
+    <div class="card-modern mt-3"><h6>⚠️ تنبيهات المخزون</h6><div id="lowStockAlerts"></div></div>
 </div>
 
 <!-- POS View -->
 <div id="sellView" class="unified-section">
-    <h6 class="mb-3"><i class="bi bi-receipt"></i> Point of Sale</h6>
+    <h6 class="mb-3"><i class="bi bi-receipt"></i> نقطة البيع</h6>
     <div class="row g-3" style="display: flex; gap: 1rem;">
         <div class="col-md-6" style="flex: 1;">
             <!-- BARCODE SCANNER INPUT -->
@@ -175,7 +177,7 @@
                 <small class="text-muted">Fadlan scan barcode-ka ama geli SKU number</small>
             </div>
             
-            <input id="searchProduct" class="form-control mb-3" placeholder="🔍 Search product by name...">
+            <input id="searchProduct" class="form-control mb-3" placeholder="🔍 ابحث عن المنتج بالاسم...">
             <div id="productList" style="max-height:360px;overflow:auto"></div>
         </div>
         <div class="col-md-6" style="flex: 1;">
@@ -183,12 +185,12 @@
             <div id="cartArea"></div>
             <div class="d-flex gap-2 mt-3 flex-wrap" style="display: flex; gap: 0.5rem; margin-top: 1rem;">
                 <select id="payType" class="form-select w-auto">
-                    <option value="Paid">💵 Paid</option>
-                    <option value="Credit">💳 Credit</option>
+                    <option value="Paid">💵 نقداً</option>
+                    <option value="Credit">💳 بالآجل</option>
                 </select>
-                <input id="custName" class="form-control" placeholder="Customer Name (Credit)" style="display:none" autocomplete="off">
-                <input id="custPhone" class="form-control" placeholder="Phone (Credit)" style="display:none" autocomplete="off">
-                <button class="btn-accent ms-auto" id="btnSaveSale">🖨️ Save & Print Receipt</button>
+                <input id="custName" class="form-control" placeholder="اسم العميل (آجل)" style="display:none" autocomplete="off">
+                <input id="custPhone" class="form-control" placeholder="الهاتف (آجل)" style="display:none" autocomplete="off">
+                <button class="btn-accent ms-auto" id="btnSaveSale">🖨️ حفظ وطباعة الإيصال</button>
             </div>
         </div>
     </div>
@@ -196,37 +198,37 @@
 
 <!-- Products View (ADMIN ONLY) -->
 <div id="productsView" class="unified-section">
-    <h6 class="mb-3 role-admin" style="display:none"><i class="bi bi-box-seam"></i> Manage Products</h6>
+    <h6 class="mb-3 role-admin" style="display:none"><i class="bi bi-box-seam"></i> إدارة المنتجات</h6>
     <form id="productForm" class="row g-2 mb-3 role-admin" style="display:none">
         <input type="hidden" id="editProductId">
-        <div class="col-md-3"><input id="pName" class="form-control" placeholder="Product Name" required maxlength="100"></div>
-        <div class="col-md-2"><input id="pPrice" class="form-control" type="number" min="0.01" step="0.01" placeholder="Sale Price $" required></div>
-        <div class="col-md-2"><input id="pCost" class="form-control" type="number" min="0.01" step="0.01" placeholder="Cost Price $" required></div>
-        <div class="col-md-2"><input id="pSKU" class="form-control" placeholder="SKU/Code" maxlength="50"></div>
-        <div class="col-md-1"><input id="pQty" class="form-control" type="number" min="0" placeholder="Qty" required></div>
-        <div class="col-md-1"><input id="pLow" class="form-control" type="number" min="0" placeholder="Low Alert" value="10" required></div>
-        <div class="col-md-1"><button class="btn-accent w-100" type="submit" id="productSubmitBtn">Add</button></div>
+        <div class="col-md-3"><input id="pName" class="form-control" placeholder="اسم المنتج" required maxlength="100"></div>
+        <div class="col-md-2"><input id="pPrice" class="form-control" type="number" min="0.01" step="0.01" placeholder="سعر البيع $" required></div>
+        <div class="col-md-2"><input id="pCost" class="form-control" type="number" min="0.01" step="0.01" placeholder="سعر التكلفة $" required></div>
+        <div class="col-md-2"><input id="pSKU" class="form-control" placeholder="SKU/الرمز" maxlength="50"></div>
+        <div class="col-md-1"><input id="pQty" class="form-control" type="number" min="0" placeholder="الكمية" required></div>
+        <div class="col-md-1"><input id="pLow" class="form-control" type="number" min="0" placeholder="تنبيه منخفض" value="10" required></div>
+        <div class="col-md-1"><button class="btn-accent w-100" type="submit" id="productSubmitBtn">إضافة</button></div>
         <!-- default discount for product -->
         <div class="col-md-2"><select id="pDiscType" class="form-select">
-                <option value="">No Discount</option>
-                <option value="percent">% Discount</option>
-                <option value="fixed">Fixed Discount</option>
+                <option value="">بدون خصم</option>
+                <option value="percent">% خصم</option>
+                <option value="fixed">خصم ثابت</option>
             </select></div>
-        <div class="col-md-2"><input id="pDiscValue" class="form-control" type="number" min="0" step="0.01" placeholder="Disc value"></div>
+        <div class="col-md-2"><input id="pDiscValue" class="form-control" type="number" min="0" step="0.01" placeholder="قيمة الخصم"></div>
     </form>
-    <input id="filterProd" class="form-control mb-3" placeholder="🔍 Filter products...">
+    <input id="filterProd" class="form-control mb-3" placeholder="🔍 تصفية المنتجات...">
     <div class="table-responsive">
         <table class="table table-sm">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>SKU</th>
-                    <th>Price</th>
-                    <th>Cost</th>
-                    <th>Disc</th>
-                    <th>Qty</th>
-                    <th>Low</th>
-                    <th class="role-admin">Action</th>
+                    <th>الاسم</th>
+                    <th>رمز المنتج</th>
+                    <th>السعر</th>
+                    <th>التكلفة</th>
+                    <th>الخصم</th>
+                    <th>الكمية</th>
+                    <th>الحد الأدنى</th>
+                    <th class="role-admin">الإجراء</th>
                 </tr>
             </thead>
             <tbody id="productsTable"></tbody>
@@ -236,48 +238,48 @@
 
 <!-- Reports View -->
 <div id="reportsView" class="unified-section">
-    <h6 class="mb-3"><i class="bi bi-graph-up"></i> Sales Reports</h6>
+    <h6 class="mb-3"><i class="bi bi-graph-up"></i> تقارير المبيعات</h6>
     <div class="row g-3" style="display: flex; gap: 1rem;">
         <div class="col-md-6" style="flex: 1;">
             <div class="d-flex gap-2 align-items-center mb-3 flex-wrap">
-                <label>📅 Range:</label>
+                <label>📅 النطاق:</label>
                 <select id="reportRange" class="form-select w-auto">
-                    <option value="today">Today</option>
-                    <option value="week">Week</option>
-                    <option value="month">Month</option>
-                    <option value="all">All</option>
-                    <option value="custom">Custom</option>
+                    <option value="today">اليوم</option>
+                    <option value="week">الأسبوع</option>
+                    <option value="month">الشهر</option>
+                    <option value="all">الكل</option>
+                    <option value="custom">مخصص</option>
                 </select>
                 <input type="date" id="rFrom" style="display:none">
                 <input type="date" id="rTo" style="display:none">
             </div>
             <h4 id="repTotal">$0.00</h4>
-            <div class="text-muted mb-3">Total sales in selected range</div>
+            <div class="text-muted mb-3">إجمالي المبيعات في النطاق المحدد</div>
             <h4 id="repProfit">$0.00</h4>
-            <div class="text-muted mb-3">Total profit in selected range</div>
+            <div class="text-muted mb-3">إجمالي الربح في النطاق المحدد</div>
             <h4 id="repDiscount">$0.00</h4>
-            <div class="text-muted mb-3">Total discounts given</div>
-            <h6>📦 Items Sold Breakdown</h6>
+            <div class="text-muted mb-3">إجمالي الخصومات الممنوحة</div>
+            <h6>📦 تفاصيل المنتجات المباعة</h6>
             <div id="repItems" style="max-height:260px;overflow:auto"></div>
         </div>
         <div class="col-md-6" style="flex: 1;">
-            <h6>🛒 Recent Sales</h6>
+            <h6>🛒 المبيعات الأخيرة</h6>
             <div style="max-height:360px;overflow:auto">
                 <table class="table table-sm">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Date</th>
-                            <th>Total</th>
-                            <th>Type</th>
-                            <th>User</th>
+                            <th>رقم الفاتورة</th>
+                            <th>التاريخ</th>
+                            <th>الإجمالي</th>
+                            <th>النوع</th>
+                            <th>المستخدم</th>
                         </tr>
                     </thead>
                     <tbody id="recentSalesTbl"></tbody>
                 </table>
             </div>
             <hr>
-            <h6>💳 Credit Accounts</h6>
+            <h6>💳 حسابات الآجل</h6>
             <div id="creditList" style="max-height:200px;overflow:auto"></div>
         </div>
     </div>
@@ -285,39 +287,39 @@
 
 <!-- Returns View (ADMIN ONLY) -->
 <div id="returnsView" class="unified-section">
-    <h6 class="mb-3 role-admin" style="display:none"><i class="bi bi-arrow-return-left"></i> Process Returns (Admin)</h6>
+    <h6 class="mb-3 role-admin" style="display:none"><i class="bi bi-arrow-return-left"></i> معالجة المرتجعات (المشرف)</h6>
     <div class="card-modern role-admin" style="display:none">
         <div class="d-flex gap-2 mb-3">
-            <input id="returnOrderId" class="form-control" placeholder="Enter Order ID (e.g., INV_...)">
-            <button class="btn-accent" id="processReturnBtn">Process Return</button>
+            <input id="returnOrderId" class="form-control" placeholder="أدخل رقم الفاتورة (مثال: INV_...)">
+            <button class="btn-accent" id="processReturnBtn">معالجة الإرجاع</button>
         </div>
         <div id="returnResult"></div>
-        <h6 class="mt-4 role-admin" style="display:none">📜 Returns History</h6>
+        <h6 class="mt-4 role-admin" style="display:none">📜 سجل المرتجعات</h6>
         <div id="returnsList" style="max-height:300px;overflow:auto"></div>
     </div>
 </div>
 
 <!-- Users View (ADMIN ONLY) -->
 <div id="usersView" class="unified-section">
-    <h6 class="mb-3 role-admin" style="display:none"><i class="bi bi-people"></i> Manage Users</h6>
+    <h6 class="mb-3 role-admin" style="display:none"><i class="bi bi-people"></i> إدارة المستخدمين</h6>
     <form id="userForm" class="row g-2 mb-3 role-admin" style="display:none">
-        <div class="col-md-4"><input id="uName" class="form-control" placeholder="Username" required maxlength="50"></div>
-        <div class="col-md-4"><input id="uPass" class="form-control" placeholder="Password" required minlength="4"></div>
+        <div class="col-md-4"><input id="uName" class="form-control" placeholder="اسم المستخدم" required maxlength="50"></div>
+        <div class="col-md-4"><input id="uPass" class="form-control" placeholder="كلمة المرور" required minlength="4"></div>
         <div class="col-md-4">
             <select id="uRole" class="form-select">
-                <option value="cashier">Cashier</option>
-                <option value="admin">Admin</option>
+                <option value="cashier">أمين صندوق</option>
+                <option value="admin">مشرف</option>
             </select>
         </div>
-        <div class="col-12"><button class="btn-accent" type="submit">➕ Add User</button></div>
+        <div class="col-12"><button class="btn-accent" type="submit">➕ إضافة مستخدم</button></div>
     </form>
     <div style="max-height:360px;overflow:auto" class="role-admin">
         <table class="table table-sm">
             <thead>
                 <tr>
-                    <th>Username</th>
-                    <th>Role</th>
-                    <th>Action</th>
+                    <th>اسم المستخدم</th>
+                    <th>الدور</th>
+                    <th>الإجراء</th>
                 </tr>
             </thead>
             <tbody id="usersTable"></tbody>
@@ -327,22 +329,22 @@
 
 <!-- Credit View -->
 <div id="creditView" class="unified-section">
-    <h6 class="mb-3"><i class="bi bi-credit-card"></i> Credit Payments</h6>
+    <h6 class="mb-3"><i class="bi bi-credit-card"></i> دفعات الآجل</h6>
     <div class="row g-3" style="display: flex; gap: 1rem;">
         <div class="col-md-6" style="flex: 1;">
             <div class="card-modern">
-                <h6>💰 Record Payment</h6>
+                <h6>💰 تسجيل الدفع</h6>
                 <form id="creditPaymentForm">
-                    <div class="mb-3"><input id="searchCustomer" class="form-control" placeholder="🔍 Search customer by name or phone..." required></div>
-                    <div class="mb-3"><input id="paymentAmount" class="form-control" type="number" min="0.01" step="0.01" placeholder="Payment Amount $" required></div>
-                    <div class="mb-3"><input id="paymentNote" class="form-control" placeholder="Note (optional)"></div>
-                    <button class="btn-accent w-100" type="submit">💳 Record Payment</button>
+                    <div class="mb-3"><input id="searchCustomer" class="form-control" placeholder="🔍 ابحث عن العميل بالاسم أو الهاتف..." required></div>
+                    <div class="mb-3"><input id="paymentAmount" class="form-control" type="number" min="0.01" step="0.01" placeholder="قيمة الدفع $" required></div>
+                    <div class="mb-3"><input id="paymentNote" class="form-control" placeholder="ملاحظة (اختياري)"></div>
+                    <button class="btn-accent w-100" type="submit">💳 تسجيل الدفع</button>
                 </form>
             </div>
             <div id="paymentResult" class="mt-3"></div>
         </div>
         <div class="col-md-6" style="flex: 1;">
-            <h6>👥 Customer Credit Accounts</h6>
+            <h6>👥 حسابات العملاء الآجل</h6>
             <div id="creditAccountsList" style="max-height:400px;overflow:auto"></div>
         </div>
     </div>
@@ -382,14 +384,14 @@ let cartDiscount = { type: null, value: 0, amount: 0 };
 // helpers for discount prompts
 function askDiscountDetails(defaultType = '', defaultValue = 0) {
     return Swal.fire({
-        title: 'Set Discount',
+        title: 'تعيين الخصم',
         html: `
             <select id="swalDiscType" class="swal2-input">
-                <option value="" ${defaultType === '' ? 'selected' : ''}>None</option>
-                <option value="percent" ${defaultType === 'percent' ? 'selected' : ''}>Percentage</option>
-                <option value="fixed" ${defaultType === 'fixed' ? 'selected' : ''}>Fixed Amount</option>
+                <option value="" ${defaultType === '' ? 'selected' : ''}>بدون</option>
+                <option value="percent" ${defaultType === 'percent' ? 'selected' : ''}>نسبة مئوية</option>
+                <option value="fixed" ${defaultType === 'fixed' ? 'selected' : ''}>مبلغ ثابت</option>
             </select>
-            <input id="swalDiscValue" class="swal2-input" placeholder="Value" type="number" min="0" step="0.01" value="${defaultValue}">
+            <input id="swalDiscValue" class="swal2-input" placeholder="القيمة" type="number" min="0" step="0.01" value="${defaultValue}">
         `,
         focusConfirm: false,
         preConfirm: () => {
@@ -475,7 +477,7 @@ function saveData(key, data) {
         return true;
     } catch (e) {
         console.error('Save error:', e);
-        Swal.fire({icon: 'error', title: 'Storage Error', text: e.message});
+        Swal.fire({icon: 'error', title: 'خطأ في التخزين', text: e.message});
         return false;
     }
 }
@@ -511,7 +513,8 @@ function showLogin() {
 function showMainApp() {
     document.getElementById('loginContainer').style.display = 'none';
     document.getElementById('navbar').style.display = 'flex';
-    document.getElementById('userDisplay').textContent = `👤 ${currentUser.username} (${currentUser.role})`;
+    const roleName = currentUser.role === CONFIG.ROLES.ADMIN ? 'مشرف' : 'أمين صندوق';
+    document.getElementById('userDisplay').textContent = `👤 ${currentUser.username} (${roleName})`;
     setupNavigation();
     
     document.querySelectorAll('.role-admin').forEach(el => {
@@ -538,15 +541,14 @@ async function handleLogin() {
     const password = document.getElementById('loginPassword').value;
     
     if (!username || !password) {
-        Swal.fire({icon: 'warning', title: 'Enter credentials', timer: 1500});
-        return;
+            Swal.fire({icon: 'warning', title: 'أدخل بيانات الدخول', timer: 1500});
     }
     
     const users = loadData(CONFIG.STORAGE_KEYS.USERS);
     const user = users.find(u => u.username === username);
     
     if (!user) {
-        Swal.fire({icon: 'error', title: 'Invalid credentials', timer: 1500});
+        Swal.fire({icon: 'error', title: 'بيانات غير صحيحة', timer: 1500});
         return;
     }
     
@@ -555,9 +557,9 @@ async function handleLogin() {
         currentUser = user;
         localStorage.setItem(CONFIG.STORAGE_KEYS.SESSION, username);
         showMainApp();
-        Swal.fire({icon: 'success', title: 'Login successful', timer: 1500});
+        Swal.fire({icon: 'success', title: 'تم تسجيل الدخول بنجاح', timer: 1500});
     } else {
-        Swal.fire({icon: 'error', title: 'Invalid credentials', timer: 1500});
+        Swal.fire({icon: 'error', title: 'بيانات غير صحيحة', timer: 1500});
     }
 }
 
@@ -568,18 +570,18 @@ function setupNavigation() {
     
     const navItems = {
         admin: [
-            {view: 'dashboard', label: 'Dashboard'},
-            {view: 'sell', label: 'POS'},
-            {view: 'products', label: 'Products'},
-            {view: 'reports', label: 'Reports'},
-            {view: 'returns', label: 'Returns'},
-            {view: 'users', label: 'Users'},
-            {view: 'credit', label: 'Credit'}
+            {view: 'dashboard', label: 'لوحة التحكم'},
+            {view: 'sell', label: 'نقطة البيع'},
+            {view: 'products', label: 'المنتجات'},
+            {view: 'reports', label: 'التقارير'},
+            {view: 'returns', label: 'المرتجعات'},
+            {view: 'users', label: 'المستخدمون'},
+            {view: 'credit', label: 'الآجل'}
         ],
         cashier: [
-            {view: 'sell', label: 'POS'},
-            {view: 'reports', label: 'Reports'},
-            {view: 'credit', label: 'Credit'}
+            {view: 'sell', label: 'نقطة البيع'},
+            {view: 'reports', label: 'التقارير'},
+            {view: 'credit', label: 'الآجل'}
         ]
     };
     
@@ -709,7 +711,7 @@ function renderSalesChart() {
                     .reduce((a,b) => a + b.total, 0);
     });
     
-    const labels = last14Days.map(d => d.toLocaleDateString('en-US', {month: 'short', day: 'numeric'}));
+    const labels = last14Days.map(d => d.toLocaleDateString('ar-EG', {month: 'short', day: 'numeric'}));
     
     salesChart = new Chart(ctx, {
         type: 'line',
@@ -752,7 +754,7 @@ function renderTopSold() {
     list.innerHTML = '';
     
     if (sorted.length === 0) {
-        list.innerHTML = '<p class="text-muted">No sales data yet.</p>';
+        list.innerHTML = '<p class="text-muted">لا توجد بيانات مبيعات بعد.</p>';
         return;
     }
     
@@ -777,12 +779,12 @@ function renderAlerts() {
     products.filter(p => p.qty <= p.low).forEach(p => {
         const div = document.createElement('div');
         div.className = 'alert alert-warning';
-        div.innerHTML = `<strong>Low Stock:</strong> ${sanitizeInput(p.name)} (Qty: ${p.qty})`;
+        div.innerHTML = `<strong>المخزون منخفض:</strong> ${sanitizeInput(p.name)} (الكمية: ${p.qty})`;
         frag.appendChild(div);
     });
     
     if (frag.childNodes.length === 0) {
-        alerts.innerHTML = '<p class="text-muted">✅ No alerts.</p>';
+        alerts.innerHTML = '<p class="text-muted">✅ لا توجد تنبيهات.</p>';
     } else {
         alerts.appendChild(frag);
     }
@@ -791,7 +793,7 @@ function renderAlerts() {
 // ==================== POS (CASHIER & ADMIN) ====================
 function renderPOS() {
     document.getElementById('searchProduct').value = '';
-    document.getElementById('cartArea').innerHTML = '<p class="text-muted"><i class="bi bi-cart"></i> Cart is empty</p>';
+    document.getElementById('cartArea').innerHTML = '<p class="text-muted"><i class="bi bi-cart"></i> السلة فارغة</p>';
     document.getElementById('payType').value = 'Paid';
     document.getElementById('custName').value = '';
     document.getElementById('custPhone').value = '';
@@ -824,8 +826,7 @@ function renderProductList(search = '') {
     list.innerHTML = '';
     
     if (products.length === 0) {
-        list.innerHTML = '<p class="text-muted">No products available.</p>';
-        return;
+        list.innerHTML = '<p class="text-muted">لا توجد منتجات متاحة.</p>';
     }
     
     const frag = document.createDocumentFragment();
@@ -837,11 +838,11 @@ function renderProductList(search = '') {
                 <div>
                     <strong>${sanitizeInput(p.name)}</strong><br>
                     <small class="text-muted">
-                        SKU: ${sanitizeInput(p.sku || 'N/A')} | Price: ${formatMoney(p.price)} | Qty: ${p.qty}
-                        ${p.discountType ? '| Disc: ' + (p.discountType === 'percent' ? p.discountValue + '%' : formatMoney(p.discountValue)) : ''}
+                        رمز المنتج: ${sanitizeInput(p.sku || 'غير متوفر')} | السعر: ${formatMoney(p.price)} | الكمية: ${p.qty}
+                        ${p.discountType ? '| الخصم: ' + (p.discountType === 'percent' ? p.discountValue + '%' : formatMoney(p.discountValue)) : ''}
                     </small>
                 </div>
-                <button class="btn-accent btn-sm" onclick="addToCart('${p.id}')">Add</button>
+                <button class="btn-accent btn-sm" onclick="addToCart('${p.id}')">إضافة</button>
             </div>
         `;
         frag.appendChild(div);
@@ -859,7 +860,7 @@ function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     
     if (!product || product.qty <= 0) {
-        Swal.fire({icon: 'warning', title: 'Product unavailable'});
+        Swal.fire({icon: 'warning', title: 'المنتج غير متوفر'});
         return;
     }
     
@@ -868,7 +869,7 @@ function addToCart(productId) {
         if (existing.qty < product.qty) {
             existing.qty++;
         } else {
-            Swal.fire({icon: 'warning', title: 'Stock limit reached'});
+            Swal.fire({icon: 'warning', title: 'وصلت إلى حد المخزون'});
             return;
         }
     } else {
@@ -904,7 +905,7 @@ function removeFromCart(productId) {
 function updateCartDisplay() {
     const cartArea = document.getElementById('cartArea');
     if (cart.length === 0) {
-        cartArea.innerHTML = '<p class="text-muted"><i class="bi bi-cart"></i> Cart is empty</p>';
+        cartArea.innerHTML = '<p class="text-muted"><i class="bi bi-cart"></i> السلة فارغة</p>';
         return;
     }
 
@@ -933,7 +934,7 @@ function updateCartDisplay() {
         <table class="table table-sm">
             <thead>
                 <tr>
-                    <th>Item</th><th>Qty</th><th>Price</th><th>Discount</th><th>Line Total</th><th></th>
+                    <th>الصنف</th><th>الكمية</th><th>السعر</th><th>الخصم</th><th>الإجمالي الفرعي</th><th></th>
                 </tr>
             </thead>
             <tbody>
@@ -955,13 +956,13 @@ function updateCartDisplay() {
             </tbody>
         </table>
         <div class="d-flex justify-content-end gap-2 mb-2">
-            <button class="btn-secondary btn-sm" onclick="applyCartDiscount()">Apply Bill Discount</button>
-            ${cartDiscount.type ? `<span class="text-warning align-self-center">Bill discount: ${cartDiscount.type === 'percent' ? cartDiscount.value + '%' : formatMoney(cartDiscount.value)} (${cartDiscount.amount ? '-' + formatMoney(cartDiscount.amount) : ''})</span>` : ''}
+            <button class="btn-secondary btn-sm" onclick="applyCartDiscount()">تطبيق خصم الفاتورة</button>
+            ${cartDiscount.type ? `<span class="text-warning align-self-center">خصم الفاتورة: ${cartDiscount.type === 'percent' ? cartDiscount.value + '%' : formatMoney(cartDiscount.value)} (${cartDiscount.amount ? '-' + formatMoney(cartDiscount.amount) : ''})</span>` : ''}
         </div>
-        <h6 class="text-end">Subtotal: ${formatMoney(subtotal)}</h6>
-        ${lineDiscountTotal > 0 ? `<h6 class="text-end text-warning">Item Discounts: -${formatMoney(lineDiscountTotal)}</h6>` : ''}
-        ${cartDiscountAmount > 0 ? `<h6 class="text-end text-warning">Cart Discount: -${formatMoney(cartDiscountAmount)}</h6>` : ''}
-        <h5 class="text-end mt-3">Total: ${formatMoney(total)}</h5>
+        <h6 class="text-end">الإجمالي الفرعي: ${formatMoney(subtotal)}</h6>
+        ${lineDiscountTotal > 0 ? `<h6 class="text-end text-warning">خصومات المنتجات: -${formatMoney(lineDiscountTotal)}</h6>` : ''}
+        ${cartDiscountAmount > 0 ? `<h6 class="text-end text-warning">خصم الفاتورة: -${formatMoney(cartDiscountAmount)}</h6>` : ''}
+        <h5 class="text-end mt-3">الإجمالي: ${formatMoney(total)}</h5>
     `;
 }
 
@@ -973,7 +974,7 @@ function toggleCreditFields() {
 
 async function processSale() {
     if (cart.length === 0) {
-        Swal.fire({icon: 'warning', title: 'Cart is empty'});
+        Swal.fire({icon: 'warning', title: 'السلة فارغة'});
         return;
     }
     
@@ -982,8 +983,7 @@ async function processSale() {
     const customerPhone = sanitizeInput(document.getElementById('custPhone').value, 20);
     
     if (paymentType === 'Credit' && (!customerName || !customerPhone)) {
-        Swal.fire({icon: 'warning', title: 'Enter customer details'});
-        return;
+        Swal.fire({icon: 'warning', title: 'أدخل بيانات العميل'});
     }
     
     const products = loadData(CONFIG.STORAGE_KEYS.PRODUCTS);
@@ -993,7 +993,7 @@ async function processSale() {
     for(let item of cart) {
         const prod = products.find(p => p.id === item.id);
         if (!prod || prod.qty < item.qty) {
-            Swal.fire({icon: 'error', title: 'Stock error', text: `Not enough stock: ${item.name}`});
+            Swal.fire({icon: 'error', title: 'خطأ في المخزون', text: `لا يوجد كمية كافية: ${item.name}`});
             return;
         }
     }
@@ -1064,11 +1064,11 @@ async function processSale() {
     
     if (saveData(CONFIG.STORAGE_KEYS.PRODUCTS, products) && saveData(CONFIG.STORAGE_KEYS.SALES, sales)) {
         printReceipt(sale);
-        Swal.fire({icon: 'success', title: 'Sale completed', text: `Receipt: ${saleId}`, timer: 2000});
+        Swal.fire({icon: 'success', title: 'تم البيع', text: `الإيصال: ${saleId}`, timer: 2000});
         cart = [];
         renderPOS();
     } else {
-        Swal.fire({icon: 'error', title: 'Sale failed'});
+        Swal.fire({icon: 'error', title: 'فشل البيع'});
     }
 }
 
@@ -1094,7 +1094,7 @@ function printReceipt(sale) {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Receipt ${sale.id}</title>
+            <title>الإيصال ${sale.id}</title>
             <style>
                 body { font-family: monospace; max-width: 350px; margin: 20px auto; }
                 .header { text-align: center; margin-bottom: 20px; border-bottom: 2px dashed #000; padding-bottom: 10px; }
@@ -1104,33 +1104,33 @@ function printReceipt(sale) {
         </head>
         <body>
             <div class="header">
-                <h2>KAAMIL SUPERMARKET</h2>
-                <p>Mogadishu, Somalia</p>
-                <p>${new Date(sale.date).toLocaleString()}</p>
+                <h2>سوبرماركت كاamil</h2>
+                <p>مقديشو، الصومال</p>
+                <p>${new Date(sale.date).toLocaleString('ar-EG')}</p>
             </div>
-            <p><strong>Receipt:</strong> ${sale.id}</p>
-            ${sale.customer ? `<p><strong>Customer:</strong> ${sanitizeInput(sale.customer)}</p>` : ''}
-            <p><strong>Cashier:</strong> ${sale.user}</p>
+            <p><strong>الإيصال:</strong> ${sale.id}</p>
+            ${sale.customer ? `<p><strong>العميل:</strong> ${sanitizeInput(sale.customer)}</p>` : ''}
+            <p><strong>أمين الصندوق:</strong> ${sale.user}</p>
             <table>
                 <tr style="border-bottom: 2px solid #000;">
-                    <th>Item</th><th>Qty</th><th>Price</th><th>Disc</th><th>Total</th>
+                    <th>الصنف</th><th>الكمية</th><th>السعر</th><th>الخصم</th><th>الإجمالي</th>
                 </tr>
                 ${lines}
                 ${sale.discount && sale.discount.amount ? `
                 <tr>
-                    <td colspan="4"><strong>Bill Discount:</strong></td>
+                    <td colspan="4"><strong>خصم الفاتورة:</strong></td>
                     <td>-${formatMoney(sale.discount.amount)}</td>
                 </tr>
                 ` : ''}
                 <tr style="border-top: 2px solid #000;">
-                    <td colspan="4"><strong>Total:</strong></td>
+                    <td colspan="4"><strong>الإجمالي:</strong></td>
                     <td><strong>${formatMoney(sale.total)}</strong></td>
                 </tr>
             </table>
-            <p><strong>Payment:</strong> ${sale.payment}</p>
-            <p>Mahadsanid wax iibsankeenna!</p>
-            <p>Thank you for shopping with us!</p>
-            <button onclick="window.print()">Print</button>
+            <p><strong>الدفع:</strong> ${sale.payment}</p>
+            <p>شكراً لتسوقك معنا!</p>
+            <p>نشكركم على زيارتكم!</p>
+            <button onclick="window.print()">طباعة</button>
         </body>
         </html>
         
@@ -1187,8 +1187,8 @@ function handleBarcodeScan(barcode) {
             
             Swal.fire({
                 icon: 'success',
-                title: 'Product Added!',
-                text: `${sanitizeInput(product.name)} added to cart`,
+                title: 'تم إضافة المنتج!',
+                text: `${sanitizeInput(product.name)} تمت إضافته إلى السلة`,
                 toast: true,
                 position: 'top-end',
                 timer: 2000,
@@ -1199,8 +1199,8 @@ function handleBarcodeScan(barcode) {
         } else {
             Swal.fire({
                 icon: 'warning',
-                title: 'Out of Stock',
-                text: `${sanitizeInput(product.name)} is not available`,
+                title: 'نفد من المخزون',
+                text: `${sanitizeInput(product.name)} غير متوفر`,
                 toast: true,
                 position: 'top-end',
                 timer: 2500
@@ -1210,8 +1210,8 @@ function handleBarcodeScan(barcode) {
     } else {
         Swal.fire({
             icon: 'error',
-            title: 'Product Not Found',
-            text: `No product with SKU: ${cleanBarcode}`,
+            title: 'المنتج غير موجود',
+            text: `لا يوجد منتج بهذا الرمز: ${cleanBarcode}`,
             toast: true,
             position: 'top-end',
             timer: 3000
@@ -1233,7 +1233,7 @@ function printBarcode(productId) {
     const product = products.find(p => p.id === productId);
     
     if (!product || !product.sku) {
-        Swal.fire({icon: 'warning', title: 'No SKU set for this product'});
+        Swal.fire({icon: 'warning', title: 'لا يوجد رمز SKU لهذا المنتج'});
         return;
     }
     
@@ -1244,7 +1244,7 @@ function printBarcode(productId) {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Barcode - ${sanitizeInput(product.name)}</title>
+            <title>باركود - ${sanitizeInput(product.name)}</title>
             <style>
                 body { font-family: monospace; padding: 20px; text-align: center; }
                 .barcode-container { margin: 20px; padding: 20px; border: 2px solid #000; }
@@ -1259,8 +1259,8 @@ function printBarcode(productId) {
                 <div class="product-name">${sanitizeInput(product.name)}</div>
                 <div class="price">${formatMoney(product.price)}</div>
                 <div class="barcode">${barcodeText}</div>
-                <div style="font-size: 12px;">SKU: ${barcodeText}</div>
-                <button onclick="window.print()" style="margin-top: 20px;">Print</button>
+                <div style="font-size: 12px;">رمز المنتج: ${barcodeText}</div>
+                <button onclick="window.print()" style="margin-top: 20px;">طباعة</button>
             </div>
         </body>
         </html>
@@ -1277,7 +1277,7 @@ function renderProducts() {
     }
     
     document.getElementById('editProductId').value = '';
-    document.getElementById('productSubmitBtn').textContent = 'Add';
+    document.getElementById('productSubmitBtn').textContent = 'إضافة';
     document.getElementById('productForm').reset();
     document.getElementById('pLow').value = '10';
     document.getElementById('pDiscType').value = '';
@@ -1299,7 +1299,7 @@ function renderProductsTable(filter = '') {
         const discDisplay = p.discountType ? (p.discountType === 'percent' ? p.discountValue + '%' : formatMoney(p.discountValue)) : '';
         tr.innerHTML = `
             <td>${sanitizeInput(p.name)}</td>
-            <td>${sanitizeInput(p.sku || 'N/A')}</td>
+            <td>${sanitizeInput(p.sku || 'غير متوفر')}</td>
             <td>${formatMoney(p.price)}</td>
             <td>${formatMoney(p.cost)}</td>
             <td>${discDisplay}</td>
@@ -1307,9 +1307,9 @@ function renderProductsTable(filter = '') {
             <td>${p.low}</td>
             <td class="role-admin">
                 <div class="action-buttons">
-                    <button class="btn-blue btn-sm" onclick="editProduct('${p.id}')">Edit</button>
-                    <button class="btn-danger btn-sm" onclick="deleteProduct('${p.id}')">Delete</button>
-                    <button class="btn-secondary btn-sm" onclick="printBarcode('${p.id}')">Barcode</button>
+                    <button class="btn-blue btn-sm" onclick="editProduct('${p.id}')">تعديل</button>
+                    <button class="btn-danger btn-sm" onclick="deleteProduct('${p.id}')">حذف</button>
+                    <button class="btn-secondary btn-sm" onclick="printBarcode('${p.id}')">طباعة باركود</button>
                 </div>
             </td>
         `;
@@ -1324,7 +1324,7 @@ function renderProductsTable(filter = '') {
 
 function handleProductSubmit(e) {
     if (currentUser.role !== CONFIG.ROLES.ADMIN) {
-        Swal.fire({icon: 'error', title: 'Access denied'});
+        Swal.fire({icon: 'error', title: 'تم رفض الوصول'});
         return;
     }
     
@@ -1343,7 +1343,7 @@ function handleProductSubmit(e) {
     };
     
     if (!product.name || !product.price || !product.cost || product.qty < 0) {
-        Swal.fire({icon: 'warning', title: 'Please fill all fields correctly'});
+        Swal.fire({icon: 'warning', title: 'يرجى تعبئة جميع الحقول بشكل صحيح'});
         return;
     }
     
@@ -1357,7 +1357,7 @@ function handleProductSubmit(e) {
     }
     
     if (saveData(CONFIG.STORAGE_KEYS.PRODUCTS, products)) {
-        Swal.fire({icon: 'success', title: id ? 'Product updated' : 'Product added', timer: 1500});
+        Swal.fire({icon: 'success', title: id ? 'تم تحديث المنتج' : 'تم إضافة المنتج', timer: 1500});
         renderProducts();
     }
 }
@@ -1378,7 +1378,7 @@ function editProduct(id) {
     document.getElementById('pLow').value = product.low;
     document.getElementById('pDiscType').value = product.discountType || '';
     document.getElementById('pDiscValue').value = product.discountValue || 0;
-    document.getElementById('productSubmitBtn').textContent = 'Save';
+    document.getElementById('productSubmitBtn').textContent = 'حفظ';
     
     document.getElementById('productForm').scrollIntoView({ behavior: 'smooth' });
 }
@@ -1390,17 +1390,18 @@ function deleteProduct(id) {
     const product = products.find(p => p.id === id);
     
     Swal.fire({
-        title: 'Delete Product?',
-        text: `"${sanitizeInput(product.name)}" will be removed permanently.`,
+        title: 'حذف المنتج؟',
+        text: `"${sanitizeInput(product.name)}" سيتم حذفه نهائياً.`,
         icon: 'warning',
         showCancelButton: true,
+        cancelButtonText: 'إلغاء',
         confirmButtonColor: '#dc3545',
-        confirmButtonText: 'Delete'
+        confirmButtonText: 'حذف'
     }).then(result => {
         if (result.isConfirmed) {
             const updatedProducts = products.filter(p => p.id !== id);
             if (saveData(CONFIG.STORAGE_KEYS.PRODUCTS, updatedProducts)) {
-                Swal.fire({icon: 'success', title: 'Product deleted', timer: 1500});
+                Swal.fire({icon: 'success', title: 'تم حذف المنتج', timer: 1500});
                 renderProducts();
             }
         }
@@ -1487,7 +1488,7 @@ function renderReports() {
     repItems.innerHTML = '';
     
     if (Object.keys(items).length === 0) {
-        repItems.innerHTML = '<p class="text-muted">No items sold.</p>';
+        repItems.innerHTML = '<p class="text-muted">لا توجد أصناف مباعة.</p>';
     } else {
         const ul = document.createElement('ul');
         ul.className = 'list-group';
@@ -1511,7 +1512,7 @@ function renderReports() {
     recent.forEach(s => {
         const tr = document.createElement('tr');
         tr.className = s.returned ? 'table-warning' : '';
-        tr.innerHTML = `<td>${s.id}</td><td>${new Date(s.date).toLocaleString()}</td><td>${formatMoney(s.total)}</td><td>${s.payment}</td><td>${s.user}</td>`;
+        tr.innerHTML = `<td>${s.id}</td><td>${new Date(s.date).toLocaleString('ar-EG')}</td><td>${formatMoney(s.total)}</td><td>${s.payment}</td><td>${s.user}</td>`;
         frag.appendChild(tr);
     });
     tbl.appendChild(frag);
@@ -1521,7 +1522,7 @@ function renderReports() {
     creditList.innerHTML = '';
     
     if (customers.length === 0) {
-        creditList.innerHTML = '<p class="text-muted">No active credit accounts.</p>';
+        creditList.innerHTML = '<p class="text-muted">لا توجد حسابات آجلة نشطة.</p>';
     } else {
         customers.forEach(c => {
             const div = document.createElement('div');
@@ -1543,13 +1544,13 @@ function renderReports() {
 // ==================== RETURNS (ADMIN ONLY) ====================
 function processReturn() {
     if (currentUser.role !== CONFIG.ROLES.ADMIN) {
-        Swal.fire({icon: 'error', title: 'Access denied', text: 'Admin only.'});
+        Swal.fire({icon: 'error', title: 'تم رفض الوصول', text: 'للمشرف فقط.'});
         return;
     }
     
     const orderId = sanitizeInput(document.getElementById('returnOrderId').value, 50);
     if (!orderId) {
-        Swal.fire({icon: 'warning', title: 'Enter Order ID'});
+        Swal.fire({icon: 'warning', title: 'أدخل رقم الطلب'});
         return;
     }
     
@@ -1557,26 +1558,28 @@ function processReturn() {
     const saleIndex = sales.findIndex(s => s.id === orderId);
     
     if (saleIndex === -1) {
-        Swal.fire({icon: 'error', title: 'Order not found'});
+        Swal.fire({icon: 'error', title: 'الطلب غير موجود'});
         return;
     }
     
     const sale = sales[saleIndex];
     if (sale.returned) {
-        Swal.fire({icon: 'info', title: 'Already returned'});
+        Swal.fire({icon: 'info', title: 'تم الإرجاع مسبقاً'});
         return;
     }
     
     if ((Date.now() - new Date(sale.date).getTime()) / 36e5 > 24) {
-        Swal.fire({icon: 'error', title: 'Return expired', text: 'Returns only allowed within 24 hours.'});
+        Swal.fire({icon: 'error', title: 'انتهت صلاحية الإرجاع', text: 'المرتجعات مسموح بها فقط خلال 24 ساعة.'});
         return;
     }
     
     Swal.fire({
-        title: 'Process return?',
-        text: `Return ${sale.lines.length} item(s) from order ${orderId}?`,
+        title: 'معالجة الإرجاع؟',
+        text: `هل تريد إرجاع ${sale.lines.length} منتجاً من الطلب ${orderId}؟`,
         icon: 'question',
-        showCancelButton: true
+        showCancelButton: true,
+        cancelButtonText: 'إلغاء',
+        confirmButtonText: 'تأكيد'
     }).then(result => {
         if (result.isConfirmed) {
             const products = loadData(CONFIG.STORAGE_KEYS.PRODUCTS);
@@ -1593,9 +1596,9 @@ function processReturn() {
                 saveData(CONFIG.STORAGE_KEYS.SALES, sales) &&
                 saveData(CONFIG.STORAGE_KEYS.RETURNS, returns)) {
                 
-                Swal.fire({icon: 'success', title: 'Return processed', timer: 2000});
+                Swal.fire({icon: 'success', title: 'تم معالجة الإرجاع', timer: 2000});
                 document.getElementById('returnOrderId').value = '';
-                document.getElementById('returnResult').innerHTML = `<div class="alert alert-success">Return processed for ${orderId}</div>`;
+                document.getElementById('returnResult').innerHTML = `<div class="alert alert-success">تمت معالجة الإرجاع لـ ${orderId}</div>`;
                 renderReturnsHistory();
                 updateAll();
             }
@@ -1611,7 +1614,7 @@ function renderReturnsHistory() {
     list.innerHTML = '';
     
     if (returns.length === 0) {
-        list.innerHTML = '<p class="text-muted">No returns recorded yet.</p>';
+        list.innerHTML = '<p class="text-muted">لا توجد سجلات مرتجعات بعد.</p>';
         return;
     }
     
@@ -1620,8 +1623,8 @@ function renderReturnsHistory() {
         div.className = 'card-modern mb-2';
         div.innerHTML = `
             <div class="d-flex justify-content-between">
-                <div><b>${r.orderId}</b><br><small>${new Date(r.date).toLocaleString()}</small></div>
-                <span class="text-success">✓ Returned</span>
+                <div><b>${r.orderId}</b><br><small>${new Date(r.date).toLocaleString('ar-EG')}</small></div>
+                <span class="text-success">✓ تم الإرجاع</span>
             </div>
         `;
         list.appendChild(div);
@@ -1631,7 +1634,7 @@ function renderReturnsHistory() {
 // ==================== USERS (ADMIN ONLY) ====================
 async function handleUserSubmit(e) {
     if (currentUser.role !== CONFIG.ROLES.ADMIN) {
-        Swal.fire({icon: 'error', title: 'Access denied'});
+        Swal.fire({icon: 'error', title: 'تم رفض الوصول'});
         return;
     }
     
@@ -1642,13 +1645,13 @@ async function handleUserSubmit(e) {
     const role = document.getElementById('uRole').value;
     
     if (!username || password.length < 4) {
-        Swal.fire({icon: 'warning', title: 'Invalid input'});
+        Swal.fire({icon: 'warning', title: 'بيانات غير صالحة'});
         return;
     }
     
     const users = loadData(CONFIG.STORAGE_KEYS.USERS);
     if (users.find(u => u.username === username)) {
-        Swal.fire({icon: 'warning', title: 'User already exists'});
+        Swal.fire({icon: 'warning', title: 'المستخدم موجود بالفعل'});
         return;
     }
     
@@ -1660,7 +1663,7 @@ async function handleUserSubmit(e) {
     });
     
     if (saveData(CONFIG.STORAGE_KEYS.USERS, users)) {
-        Swal.fire({icon: 'success', title: 'User added', timer: 1500});
+        Swal.fire({icon: 'success', title: 'تم إضافة المستخدم', timer: 1500});
         document.getElementById('userForm').reset();
         renderUsers();
     }
@@ -1677,11 +1680,11 @@ function renderUsers() {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${sanitizeInput(u.username)}</td>
-            <td><span class="badge ${u.role === CONFIG.ROLES.ADMIN ? 'bg-danger' : 'bg-primary'}">${u.role}</span></td>
+            <td><span class="badge ${u.role === CONFIG.ROLES.ADMIN ? 'bg-danger' : 'bg-primary'}">${u.role === CONFIG.ROLES.ADMIN ? 'مشرف' : 'أمين صندوق'}</span></td>
             <td>
                 ${u.username !== 'admin' ? 
-                    `<button class="btn-danger btn-sm" onclick="deleteUser('${u.username}')">Delete</button>` : 
-                    `<small>Protected</small>`
+                    `<button class="btn-danger btn-sm" onclick="deleteUser('${u.username}')">حذف</button>` : 
+                    `<small>محمي</small>`
                 }
             </td>
         `;
@@ -1693,14 +1696,16 @@ function deleteUser(username) {
     if (currentUser.role !== CONFIG.ROLES.ADMIN) return;
     
     Swal.fire({
-        title: 'Delete user?',
+        title: 'حذف المستخدم؟',
         icon: 'warning',
-        showCancelButton: true
+        showCancelButton: true,
+        cancelButtonText: 'إلغاء',
+        confirmButtonText: 'حذف'
     }).then(result => {
         if (result.isConfirmed) {
             const users = loadData(CONFIG.STORAGE_KEYS.USERS).filter(u => u.username !== username);
             if (saveData(CONFIG.STORAGE_KEYS.USERS, users)) {
-                Swal.fire({icon: 'success', title: 'User deleted', timer: 1500});
+                Swal.fire({icon: 'success', title: 'تم حذف المستخدم', timer: 1500});
                 renderUsers();
             }
         }
@@ -1722,7 +1727,7 @@ function renderCreditAccounts() {
     list.innerHTML = '';
     
     if (customers.length === 0) {
-        list.innerHTML = '<p class="text-muted">No credit customers.</p>';
+        list.innerHTML = '<p class="text-muted">لا توجد عملاء آجل.</p>';
         return;
     }
     
@@ -1752,7 +1757,7 @@ function handleCreditPayment(e) {
     const note = sanitizeInput(document.getElementById('paymentNote').value, 200);
     
     if (!search || amount <= 0) {
-        Swal.fire({icon: 'warning', title: 'Invalid input'});
+        Swal.fire({icon: 'warning', title: 'بيانات غير صالحة'});
         return;
     }
     
@@ -1762,13 +1767,12 @@ function handleCreditPayment(e) {
     );
     
     if (!customer) {
-        Swal.fire({icon: 'error', title: 'Customer not found'});
+        Swal.fire({icon: 'error', title: 'العميل غير موجود'});
         return;
     }
     
     if (amount > customer.balance) {
-        Swal.fire({icon: 'error', title: 'Invalid amount', text: `Customer owes ${formatMoney(customer.balance)}`});
-        return;
+        Swal.fire({icon: 'error', title: 'مبلغ غير صالح', text: `العميل مدين بـ ${formatMoney(customer.balance)}`});
     }
     
     customer.balance = Math.max(0, customer.balance - amount);
@@ -1786,13 +1790,13 @@ function handleCreditPayment(e) {
     if (saveData(CONFIG.STORAGE_KEYS.PATIENTS, customers) &&
         saveData(CONFIG.STORAGE_KEYS.PAYMENTS, payments)) {
         
-        Swal.fire({icon: 'success', title: 'Payment recorded', timer: 2000});
+        Swal.fire({icon: 'success', title: 'تم تسجيل الدفعة', timer: 2000});
         document.getElementById('creditPaymentForm').reset();
         renderCreditAccounts();
         renderReports();
-        document.getElementById('paymentResult').innerHTML = `<div class="alert alert-success">Payment recorded!</div>`;
+        document.getElementById('paymentResult').innerHTML = `<div class="alert alert-success">تم تسجيل الدفعة.</div>`;
     } else {
-        Swal.fire({icon: 'error', title: 'Save failed'});
+        Swal.fire({icon: 'error', title: 'فشل الحفظ'});
     }
 }
 
@@ -1862,9 +1866,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     document.getElementById('logoutBtn').addEventListener('click', () => {
         Swal.fire({
-            title: 'Logout?',
+            title: 'تسجيل الخروج؟',
             icon: 'question',
-             showCancelButton: true
+            showCancelButton: true,
+            cancelButtonText: 'إلغاء',
+            confirmButtonText: 'خروج'
         }).then(result => {
             if (result.isConfirmed) {
                 localStorage.removeItem(CONFIG.STORAGE_KEYS.SESSION);
@@ -1889,7 +1895,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `pharmacy_backup_${Date.now()}.json`;
+        a.download = `backup_kaamil_${Date.now()}.json`;
         a.click();
         URL.revokeObjectURL(url);
     });
